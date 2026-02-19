@@ -1,0 +1,396 @@
+:root {
+    --primary-color: #FFD700; /* 단무지 골드 */
+    --secondary-color: #222222; /* 김밥 김 블랙 */
+    --text-color: #333333;
+    --bg-color: #f9f9f9;
+    --white: #ffffff;
+    --gray: #e0e0e0;
+    --accent: #ff6b6b; /* 포인트 컬러 (오답/VS 등) */
+    
+    --font-heading: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    --font-body: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 40px;
+    
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-bottom: var(--spacing-sm);
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+/* Main Container */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+}
+
+/* Sections */
+section {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main Menu Buttons */
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.menu-btn {
+    background: var(--white);
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+}
+
+.menu-btn:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.menu-btn .icon {
+    font-size: 1.5rem;
+}
+
+/* Section Common */
+.content-section h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+}
+
+.back-btn:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Section 1: Content Box */
+.content-box {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    line-height: 1.8;
+}
+
+.content-box strong {
+    background: linear-gradient(120deg, var(--primary-color) 0%, var(--primary-color) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 30%;
+    background-position: 0 90%;
+}
+
+.content-box hr {
+    margin: var(--spacing-lg) 0;
+    border: 0;
+    border-top: 1px dashed var(--gray);
+}
+
+/* Section 2: Comparison */
+.comparison-table {
+    display: flex;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+}
+
+.comparison-table .col {
+    flex: 1;
+    padding: var(--spacing-lg);
+}
+
+.comparison-table h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.comparison-table ul {
+    list-style: none;
+    font-size: 0.95rem;
+}
+
+.comparison-table li {
+    margin-bottom: 8px;
+}
+
+.vr {
+    width: 2px;
+    background: var(--gray);
+    margin: var(--spacing-md) 0;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: none;
+    background: #ddd;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.tab-btn.active {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow);
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.2s;
+}
+
+.tab-content ol {
+    padding-left: 20px;
+    margin-top: var(--spacing-md);
+}
+
+.tab-content li {
+    margin-bottom: 8px;
+}
+
+/* Section 3: World Cup */
+.game-view {
+    display: none;
+    text-align: center;
+}
+
+.game-view.active {
+    display: block;
+}
+
+.game-intro {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
+}
+
+.start-btn, .restart-btn {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: 0 4px 0 #000;
+    transition: transform 0.1s;
+}
+
+.start-btn:active, .restart-btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+.round-info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: var(--spacing-lg);
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.battle-arena {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    position: relative;
+    padding: var(--spacing-md) 0;
+}
+
+.battle-btn {
+    background: var(--white);
+    border: 3px solid var(--gray);
+    border-radius: var(--radius-md);
+    padding: 30px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    color: var(--text-color);
+}
+
+.battle-btn:hover {
+    border-color: var(--secondary-color);
+    background: #fffdf0;
+    transform: scale(1.02);
+}
+
+.vs-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-style: italic;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.winner-display {
+    padding: 40px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    border: 3px solid var(--primary-color);
+}
+
+.winner-display .food-name {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    font-weight: 900;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: #f0f0f0;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: auto;
+}
+
+/* Responsive */
+@media (min-width: 600px) {
+    .main-menu {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .menu-btn {
+        flex: 1;
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .battle-arena {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 300px;
+        align-items: center;
+    }
+
+    .battle-btn {
+        height: 100%;
+    }
+}

@@ -1,15 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>김밥 맛있쩡 - 김밥 백과사전 & 월드컵</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>김밥마시쪙</h1>
-    <p>김밥은 맛있습니다.</p>
+    <header class="header">
+        <h1 class="logo" onclick="app.goHome()">🍙 김밥 맛있쩡</h1>
+        <p class="subtitle">김밥의 모든 것, 그리고 당신의 선택</p>
+    </header>
+
+    <main id="app">
+        <!-- 메인 화면 -->
+        <section id="home-section" class="active">
+            <nav class="main-menu">
+                <button type="button" class="menu-btn" onclick="app.showSection('origin-section')">
+                    <span class="icon">📜</span>
+                    <span class="text">김밥의 유래</span>
+                </button>
+                <button type="button" class="menu-btn" onclick="app.showSection('vs-section')">
+                    <span class="icon">🆚</span>
+                    <span class="text">김밥 vs 후토마키</span>
+                </button>
+                <button type="button" class="menu-btn highlight" onclick="app.showSection('worldcup-section')">
+                    <span class="icon">🏆</span>
+                    <span class="text">김밥 취향 월드컵</span>
+                </button>
+            </nav>
+        </section>
+
+        <!-- 섹션 1: 김밥의 유래 -->
+        <section id="origin-section" class="content-section">
+            <button class="back-btn" onclick="app.goHome()">← 메인으로</button>
+            <h2>김밥의 유래</h2>
+            <div class="content-box">
+                <p>
+                    김밥의 기원에 대해서는 여러 가지 설이 존재합니다.
+                    가장 유력한 설 중 하나는 우리 고유의 음식인 <strong>'복쌈(복을 싸서 먹는다는 의미)'</strong>에서 유래했다는 것입니다.
+                </p>
+                <p>
+                    조선시대 문헌에도 밥과 반찬을 김이나 취나물 등에 싸서 먹는 문화가 기록되어 있으며,
+                    이것이 근대적인 형태의 김밥으로 발전했다는 시각이 있습니다.
+                </p>
+                <hr>
+                <p>
+                    또 다른 시각으로는 일제강점기에 일본의 '노리마키(김초밥)'가 들어오면서
+                    한국 식문화에 맞게 변형되었다는 설도 있습니다.
+                    하지만 일본의 김초밥이 식초로 간을 하는 것과 달리,
+                    <strong>한국의 김밥은 참기름과 소금으로 고소하게 간을 한다는 점</strong>에서 독창적인 발전 과정을 거쳤다고 볼 수 있습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 섹션 2: 김밥 vs 후토마키 -->
+        <section id="vs-section" class="content-section">
+            <button class="back-btn" onclick="app.goHome()">← 메인으로</button>
+            <h2>김밥 vs 후토마키</h2>
+
+            <div class="comparison-table">
+                <div class="col">
+                    <h3>🇰🇷 김밥</h3>
+                    <ul>
+                        <li><strong>간:</strong> 참기름, 소금</li>
+                        <li><strong>특징:</strong> 고소한 맛, 다양한 속재료</li>
+                        <li><strong>온도:</strong> 따뜻하거나 식은 밥</li>
+                    </ul>
+                </div>
+                <div class="vr"></div>
+                <div class="col">
+                    <h3>🇯🇵 후토마키</h3>
+                    <ul>
+                        <li><strong>간:</strong> 식초, 설탕 (초밥)</li>
+                        <li><strong>특징:</strong> 새콤달콤, 생선회 중심</li>
+                        <li><strong>온도:</strong> 식은 밥 (샤리)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="app.switchTab('kimbap-recipe')">김밥 레시피</button>
+                <button class="tab-btn" onclick="app.switchTab('futomaki-recipe')">후토마키 레시피</button>
+            </div>
+
+            <div id="kimbap-recipe" class="tab-content active">
+                <h4>🥣 김밥 만들기</h4>
+                <ol>
+                    <li>갓 지은 밥에 참기름과 맛소금을 넣고 섞어 식힌다.</li>
+                    <li>김밥용 김의 거친 면이 위로 오게 깐다.</li>
+                    <li>밥을 얇게 펴 바르고 단무지, 햄, 시금치 등 재료를 올린다.</li>
+                    <li>꾹꾹 눌러가며 돌돌 만다.</li>
+                    <li>겉면에 참기름을 바르고 먹기 좋게 썬다.</li>
+                </ol>
+            </div>
+
+            <div id="futomaki-recipe" class="tab-content">
+                <h4>🍣 후토마키 만들기</h4>
+                <ol>
+                    <li>밥에 배합초(식초, 설탕, 소금)를 섞어 초밥을 만든다.</li>
+                    <li>김 위에 밥을 올리고, 두툼한 계란말이, 생선회, 오이 등을 올린다.</li>
+                    <li>재료가 많으므로 터지지 않게 기술적으로 만다.</li>
+                    <li>일반 김밥보다 훨씬 굵게 썰어 한 입 가득 먹는다.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 섹션 3: 김밥 취향 월드컵 -->
+        <section id="worldcup-section" class="content-section">
+            <button class="back-btn" onclick="app.goHome()">← 메인으로</button>
+            <h2>김밥 취향 월드컵</h2>
+
+            <!-- 게임 시작 전 -->
+            <div id="game-start" class="game-view active">
+                <p class="game-intro">최고의 김밥을 찾아라!<br>총 32종의 김밥 중 당신의 원픽은?</p>
+                <button class="start-btn" onclick="worldCup.initGame()">🚀 게임 시작 (32강)</button>
+            </div>
+
+            <!-- 게임 진행 중 -->
+            <div id="game-playing" class="game-view">
+                <div class="round-info">
+                    <span id="round-label">32강</span>
+                    <span id="match-count">1 / 16</span>
+                </div>
+                <div class="battle-arena">
+                    <button class="battle-btn" id="btn-left" onclick="worldCup.selectWinner(0)">
+                        <span class="food-name">김밥 A</span>
+                    </button>
+                    <div class="vs-badge">VS</div>
+                    <button class="battle-btn" id="btn-right" onclick="worldCup.selectWinner(1)">
+                        <span class="food-name">김밥 B</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 게임 결과 -->
+            <div id="game-result" class="game-view">
+                <p class="result-title">🏆 최종 우승 🏆</p>
+                <div class="winner-display">
+                    <span id="winner-name" class="food-name highlight">김밥 이름</span>
+                </div>
+                <button class="restart-btn" onclick="worldCup.initGame()">🔄 다시 하기</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 KimBab Masizzung. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
